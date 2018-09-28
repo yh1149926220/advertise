@@ -1,18 +1,15 @@
 <template>
   <div>
-    <h1>loading页面---陈冬冬</h1>
-    <div>
-      我的语言是{{language}}
-    </div>
-    <XButton text="查看" type="primary" @click.native="jump2Next"></XButton>
+    <x-header>科普知识保存图</x-header>
+    <h1>保存后的页面---陈冬冬</h1>
   </div>
 </template>
 <script>
   import { mapGetters } from 'vuex'
-  import {XButton} from 'vux'
+  import {XButton, XHeader} from 'vux'
   export default {
     components: {
-      XButton
+      XButton, XHeader
     },
     computed: {
       ...mapGetters([
@@ -24,9 +21,6 @@
       return {}
     },
     methods: {
-      jump2Next() {
-        this.$router.push({path: '/swiper-img'})
-      }
     },
     mounted() {
       this.$nextTick(function () {
