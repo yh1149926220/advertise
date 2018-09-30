@@ -12,6 +12,10 @@ export const constantRouterMap = [
     name: 'Loading'
   },
   {
+    path: '*',
+    redirect: '/'
+  },
+  {
     path: '/swiper-img',
     component: _import('SwiperImg'),
     name: 'SwiperImg'

@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h1>loading页面---陈冬冬</h1>
-    <div>
-      我的语言是{{language}}
+  <div class="loading">
+    <div class="text">
+      <transition-group name="fade">
+        <p :key="1" v-show="showOne">你将看到一组特殊的影视作品</p >
+        <p :key="2" v-show="showTwo">它们来自一群[特别]的作者</p >
+      </transition-group>
     </div>
-    <XButton text="查看" type="primary" @click.native="jump2Next"></XButton>
+    <!--<XButton text="查看" type="primary" @click.native="jump2Next"></XButton>-->
   </div>
 </template>
 <script>
@@ -21,17 +23,43 @@
       ])
     },
     data() {
-      return {}
+      return {
+        showOne: false,
+        showTwo: false
+      }
     },
     methods: {
       jump2Next() {
-        this.$router.push({path: '/swiper-img'})
-      }
+        setTimeout(() => {
+          this.$router.push({path: '/swiper-img'})
+        }, 3000)
+      },
+      addText(timer=1000) {
+        setTimeout(() => {
+          if (!this.showOne) {
+            this.showOne = true
+            this.addText(2000)
+          } else if (!this.showTwo) {
+            this.showTwo = true
+            this.jump2Next()
+          }
+        }, timer)
+      },
     },
     mounted() {
       this.$nextTick(function () {
-
+        this.addText()
       })
     }
   }
 </script>
+<style lang="scss" scoped>
+  @import "style/common";
+  .loading {
+    background: url("../assets/ic_loading_bg.png") no-repeat center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+	}
+</style>
