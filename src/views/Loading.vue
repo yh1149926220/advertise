@@ -53,7 +53,7 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @import "style/common";
   .loading {
     background: url("../assets/ic_loading_bg.png") no-repeat center;
@@ -61,5 +61,8 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+    .text{
+      font-family: SourceHanSansCN-Medium;
+    }
 	}
 </style>

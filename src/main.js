@@ -4,6 +4,7 @@ import 'normalize.css/normalize.css'
 import 'vux/src/styles/index.less'
 
 import '@/styles/index.scss' // global css
+import '@/styles/fonts/font.scss'
 import * as filters from './filters' // global filters
 
 import App from './App'
